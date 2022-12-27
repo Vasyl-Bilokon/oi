@@ -7,9 +7,12 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
 import sys
 
-training = np.genfromtxt('./assets/movie_review.csv', delimiter=';', skip_header=1, usecols=(0, 1), dtype=None, encoding="utf8")
-train_x = [x[1] for x in training]
-train_y = np.asarray([x[0] for x in training])
+# Read dataset
+training = np.genfromtxt('./assets/movie_review.csv', delimiter=',', skip_header=1, usecols=(0, 1), dtype=None, encoding="utf8")
+# review text
+train_x = [x[0] for x in training]
+# review positive or negative
+train_y = np.asarray([x[1] for x in training])
 
 max_words = 3000
 
