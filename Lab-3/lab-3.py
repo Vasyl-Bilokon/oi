@@ -57,7 +57,7 @@ def split_data(SOURCE_DIR, TRAINING_DIR, VALIDATION_DIR, SPLIT_SIZE):
     for name in shuff_names[:int(len(stripped_names) * SPLIT_SIZE)]:
         copyfile(SOURCE_DIR+ '/' + name, TRAINING_DIR+ '/' + name)
 
-    for name in shuff_names[int(len(stripped_names)*SPLIT_SIZE):]:
+    for name in shuff_names[int(len(stripped_names) * SPLIT_SIZE):]:
         copyfile(SOURCE_DIR + '/' + name, VALIDATION_DIR + '/' + name)
 
 def train_val_generators(TRAINING_DIR, VALIDATION_DIR):
