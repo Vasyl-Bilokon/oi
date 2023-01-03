@@ -7,12 +7,12 @@ import matplotlib.pyplot as plt
 from shutil import copyfile 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-local_zip = '/tmp/cats-and-dogs.zip'
+local_zip = './assets/cats-and-dogs.zip'
 zip_ref = zipfile.ZipFile(local_zip, 'r')
-zip_ref.extractall('/tmp')
+zip_ref.extractall('./assets')
 zip_ref.close()
 
-source_path = '/tmp/PetImages'
+source_path = './assets/PetImages'
 source_path_dogs = os.path.join(source_path, 'Dog')
 source_path_cats = os.path.join(source_path, 'Cat')
 
@@ -21,7 +21,7 @@ print(f"There are {len(os.listdir(source_path_dogs))} images of dogs")
 
 print(f"There are {len(os.listdir(source_path_cats))} images of cats")
 
-root_dir = '/tmp/cats-v-dogs'
+root_dir = './assets/cats-vs-dogs'
 
 if os.path.exists(root_dir):
     shutil.rmtree(root_dir)
@@ -100,17 +100,17 @@ def create_model():
 
 create_train_val_dirs(root_dir)
 
-training_dir_dog = '/tmp/cats-v-dogs/training/dogs'
-training_dir_cat = '/tmp/cats-v-dogs/training/cats'
+training_dir_dog = './assets/cats-vs-dogs/training/dogs'
+training_dir_cat = './assets/cats-vs-dogs/training/cats'
 
-validation_dir_dog = '/tmp/cats-v-dogs/validation/dogs'
-validation_dit_cat = '/tmp/cats-v-dogs/validation/cats'
+validation_dir_dog = './assets/cats-vs-dogs/validation/dogs'
+validation_dit_cat = './assets/cats-vs-dogs/validation/cats'
 
 split_data(source_path_dogs, training_dir_dog, validation_dir_dog, SPLIT_SIZE=0.9)
 split_data(source_path_cats, training_dir_cat, validation_dit_cat, SPLIT_SIZE=0.9)
 
-training_dir = '/tmp/cats-v-dogs/training'
-validation_dir = '/tmp/cats-v-dogs/validation'
+training_dir = './assets/cats-vs-dogs/training'
+validation_dir = './assets/cats-vs-dogs/validation'
 train_generator, validation_generator = train_val_generators(training_dir, validation_dir)
 
 model = create_model()
