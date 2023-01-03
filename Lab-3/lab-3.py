@@ -126,13 +126,13 @@ loss=history.history['loss']
 val_loss=history.history['val_loss']
 epochs=range(len(acc))
 
-plt.plot(epochs, acc, 'r', "Training Accuracy") 
-plt.plot(epochs, val_acc, 'b', "Validation Accuracy") 
+plt.plot(epochs, acc, 'r', "Training Accuracy - red") 
+plt.plot(epochs, val_acc, 'b', "Validation Accuracy - blue") 
 plt.title('Training and validation accuracy') 
 plt.show()
 
 print("")
 
-plt.plot(epochs, loss, 'r', "Training Loss") 
-plt.plot(epochs, val_loss, 'b', "Validation Loss") 
+plt.plot(epochs, loss, 'r', "Training Loss - red") 
+plt.plot(epochs, val_loss, 'b', "Validation Loss - blue") 
 plt.show()
